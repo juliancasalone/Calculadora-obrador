@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Obrador</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="nav-shell">
+        <div class="brand-pill">Lelio Gelato</div>
+        <div class="tab-buttons">
+          <button class="pill-button active" data-tab="home">Home</button>
+          <button class="pill-button" data-tab="settings">Ajustes</button>
+        </div>
+      </header>
+
+      <section id="home" class="tab-content active">
+        <div class="cards-grid">
+          <button class="home-card" data-tab-target="create">Crear receta</button>
+          <button class="home-card" data-tab-target="elaborate">Elaborar</button>
+          <button class="home-card" data-tab-target="ingredients">Ingredientes</button>
+        </div>
+      </section>
+
+      <section id="create" class="tab-content panel">
+        <div class="title-row">
+          <h2>Crear receta</h2>
+        </div>
+        <form id="recipe-form" class="form-grid">
+          <label>Nombre de receta
+            <input type="text" id="recipe-name" required placeholder="Ej. Pistacho" />
+          </label>
+          <label>Observaciones
+            <textarea id="recipe-notes" rows="2" placeholder="Notas de elaboración"></textarea>
+          </label>
+
+          <div class="ingredients-editor">
+            <h3>Ingredientes (gramos por 1kg)</h3>
+            <div id="ingredients-list"></div>
+            <button type="button" class="secondary" id="add-ingredient">Añadir ingrediente</button>
+          </div>
+
+          <button type="submit" class="primary">Guardar receta</button>
+        </form>
+      </section>
+
+      <section id="elaborate" class="tab-content panel">
+        <div class="title-row">
+          <h2>Elaborar</h2>
+          <select id="elaborate-recipe"></select>
+          <input type="number" id="kg-input" min="0.1" step="0.1" value="12" />
+          <button id="calculate-btn" class="primary" type="button">Calcular</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Ingrediente</th>
+              <th>Cantidad (g)</th>
+            </tr>
+          </thead>
+          <tbody id="calculation-body"></tbody>
+        </table>
+      </section>
+
+      <section id="ingredients" class="tab-content panel">
+        <div class="title-row">
+          <h2>Ingredientes</h2>
+          <label>
+            Ordenar por
+            <select id="ingredient-order">
+              <option value="asc">A - Z</option>
+              <option value="desc">Z - A</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="title-row">
+          <input id="new-ingredient-name" type="text" placeholder="Nombre del ingrediente" />
+          <button id="add-ingredient-master" class="primary" type="button">AÑADIR INGREDIENTE</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Ingrediente</th>
+              <th>Presente en</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="ingredients-table-body"></tbody>
+        </table>
+      </section>
+
+      <section id="settings" class="tab-content panel">
+        <h2>Ajustes</h2>
+        <ul class="settings-list">
+          <li>Servidor listo para red local (0.0.0.0:5000).</li>
+          <li>Usa la IP del ordenador para entrar desde la tablet.</li>
+          <li>Ejemplo: http://192.168.1.100:5000</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

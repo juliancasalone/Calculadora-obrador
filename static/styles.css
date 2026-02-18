@@ -1,0 +1,170 @@
+:root {
+  color-scheme: dark;
+  --bg: #1f2023;
+  --fg: #f2f2f2;
+  --panel: #242529;
+  --soft: #e7e7e7;
+  --soft-text: #121212;
+  --danger: #ff3a3a;
+}
+
+* { box-sizing: border-box; font-family: "Inter", "Segoe UI", sans-serif; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.app-shell {
+  max-width: 1260px;
+  margin: 1rem auto;
+  border: 2px solid #fff;
+  border-radius: 28px;
+  padding: 1.2rem;
+}
+
+.nav-shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.brand-pill,
+.pill-button,
+.home-card,
+input,
+select,
+textarea,
+.primary,
+.secondary,
+.danger,
+table td,
+table th {
+  border-radius: 999px;
+}
+
+.brand-pill {
+  padding: .8rem 2rem;
+  background: #191a1d;
+  border: 2px solid #fff;
+}
+
+.tab-buttons { display: flex; gap: .8rem; }
+.pill-button {
+  border: 2px solid #fff;
+  background: transparent;
+  color: var(--fg);
+  padding: .7rem 2rem;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.pill-button.active { background: var(--soft); color: var(--soft-text); }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.home-card {
+  border: none;
+  background: var(--soft);
+  color: #0f0f0f;
+  min-height: 330px;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid #fff;
+  border-radius: 24px;
+  padding: 1rem;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: .8rem;
+}
+
+label {
+  display: grid;
+  gap: .5rem;
+}
+
+input,
+select,
+textarea {
+  border: none;
+  background: var(--soft);
+  color: var(--soft-text);
+  padding: .8rem 1.2rem;
+  font-size: 1.1rem;
+}
+
+.ingredients-editor {
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.ingredient-row {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: .8rem;
+  margin-bottom: .6rem;
+}
+
+.primary,
+.secondary,
+.danger {
+  border: none;
+  padding: .8rem 1.4rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.primary { background: var(--soft); color: #111; }
+.secondary { background: transparent; border: 1px solid #fff; color: #fff; }
+.danger {
+  background: var(--danger);
+  color: #111;
+  min-width: 62px;
+  padding: .55rem .9rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: .5rem;
+}
+th, td {
+  background: var(--soft);
+  color: #111;
+  padding: .7rem 1rem;
+  text-align: left;
+}
+
+.settings-list {
+  margin: 0;
+  padding-left: 1rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 1024px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .home-card { min-height: 180px; font-size: 2.2rem; }
+  .ingredient-row { grid-template-columns: 1fr; }
+}
